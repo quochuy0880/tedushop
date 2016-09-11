@@ -1,0 +1,4 @@
+Phan Authentication
+B1: Add cac library
+B2: Sau khi thuc hien cac thao tac xong can cap nhat database theo dong lenh
+- add-migration Intergrate-AspnetIdentity
