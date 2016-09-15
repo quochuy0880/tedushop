@@ -260,6 +260,7 @@
     <Content Include="app\shared\directives\pagerDirective.js" />
     <Content Include="app\shared\filters\statusFilter.js" />
     <Content Include="app\shared\services\apiService.js" />
+    <Content Include="app\shared\services\notificationService.js" />
     <Content Include="Assets\admin\css\AdminLTE.css" />
     <Content Include="Assets\admin\css\AdminLTE.min.css" />
     <Content Include="Assets\admin\css\skins\skin-black-light.css" />
@@ -368,11 +369,32 @@
     <Content Include="Assets\admin\libs\bootstrap\package.js" />
     <Content Include="Assets\admin\libs\fastclick\lib\fastclick.js" />
     <Content Include="Assets\admin\libs\jquery\AUTHORS.txt" />
+    <Content Include="Assets\admin\libs\jquery\build\release.js" />
+    <Content Include="Assets\admin\libs\jquery\build\release\cdn.js" />
+    <Content Include="Assets\admin\libs\jquery\build\release\dist.js" />
+    <Content Include="Assets\admin\libs\jquery\build\release\ensure-sizzle.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\build.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\dist.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\lib\spawn_test.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\node_smoke_tests.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\promises_aplus_tests.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\sourcemap.js" />
+    <Content Include="Assets\admin\libs\jquery\build\tasks\testswarm.js" />
     <Content Include="Assets\admin\libs\jquery\dist\core.js" />
     <Content Include="Assets\admin\libs\jquery\dist\jquery.js" />
     <Content Include="Assets\admin\libs\jquery\dist\jquery.min.js" />
     <Content Include="Assets\admin\libs\jquery\dist\jquery.slim.js" />
     <Content Include="Assets\admin\libs\jquery\dist\jquery.slim.min.js" />
+    <Content Include="Assets\admin\libs\jquery\external\npo\npo.js" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit-assert-step\MIT-LICENSE.txt" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit-assert-step\qunit-assert-step.js" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit\LICENSE.txt" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit\MIT-LICENSE.txt" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit\qunit.css" />
+    <Content Include="Assets\admin\libs\jquery\external\qunit\qunit.js" />
+    <Content Include="Assets\admin\libs\jquery\external\requirejs\require.js" />
+    <Content Include="Assets\admin\libs\jquery\external\sinon\LICENSE.txt" />
+    <Content Include="Assets\admin\libs\jquery\external\sinon\sinon.js" />
     <Content Include="Assets\admin\libs\jquery\external\sizzle\dist\sizzle.js" />
     <Content Include="Assets\admin\libs\jquery\external\sizzle\dist\sizzle.min.js" />
     <Content Include="Assets\admin\libs\jquery\external\sizzle\LICENSE.txt" />
@@ -497,6 +519,10 @@
     <Content Include="Assets\admin\libs\slimScroll\examples\style.css" />
     <Content Include="Assets\admin\libs\slimScroll\jquery.slimscroll.js" />
     <Content Include="Assets\admin\libs\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="Assets\admin\libs\toastr\toastr.css" />
+    <Content Include="Assets\admin\libs\toastr\toastr.js" />
+    <Content Include="Assets\admin\libs\toastr\toastr.min.css" />
+    <Content Include="Assets\admin\libs\toastr\toastr.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -691,6 +717,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\shared\modules\tedushop.common.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\admin\libs\jquery\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Assets\admin\libs\jquery\.github\PULL_REQUEST_TEMPLATE.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\admin\libs\jquery\dist\.eslintrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\admin\libs\toastr\.bower.json" />
+    <Content Include="Assets\admin\libs\toastr\bower.json" />
+    <Content Include="Assets\admin\libs\toastr\LICENSE" />
+    <Content Include="Assets\admin\libs\toastr\README.md" />
+    <Content Include="Assets\admin\libs\toastr\toastr.js.map" />
+    <Content Include="Assets\admin\libs\toastr\toastr.less" />
+    <Content Include="Assets\admin\libs\toastr\toastr.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
