@@ -33,14 +33,23 @@
                             <th>Category Name</th>
                             <th style="width: 20%">Created Date</th>
                             <th style="width: 10%">Status</th>
+                            <th>Actions</th>
                         </tr>
                         <tr ng-repeat="item in productCategories">
                             <td>{{item.ID}}</td>
                             <td>{{item.Name}}</td>
                             <td>
-                                {{item.CreatedDate}}
+                                {{item.CreDate | date:'dd/MM/yyyy hh:mm:ss'}}
                             </td>
-                            <td><span class="badge bg-red">{{item.Status}}</span></td>
+                            <td>
+                                <span ng-class="{'badge bg-red':item.Status==false,'badge bg-green':item.Status==true}">
+                                    {{item.Status | statusFilter}}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </td>
                         </tr>
                     </table>
                 </div>
