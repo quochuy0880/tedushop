@@ -4,11 +4,23 @@
     productCategoryListController.$inject = ['$scope','apiService'];
     function productCategoryListController($scope, apiService) {
         $scope.productCategories = [];//khai bao mang rong
+        $scope.page = 0;//goi phan trang
+        $scope.pagesCount = 0;
         $scope.getProductCategories = getProductCategories;
 
-        function getProductCategories() {
-            apiService.get('/api/productcategory/getall', null, function (result) {
-                $scope.productCategories = result.data;
+        function getProductCategories(page) {
+            page = page || 0;
+            var config = {
+                params: {
+                    page: page,
+                    pageSize:20
+                }
+            }
+            apiService.get('/api/productcategory/getall', config, function (result) {
+                $scope.productCategories = result.data.Items;
+                $scope.page = result.data.Page;
+                $scope.pagesCount = result.data.TotalPages;//nho dung ten thuoc tinh cua no
+                $scope.totalCount = result.data.TotalCount;
             }, function () {//failure
                 console.log('Load Product Categories failed.');
             });
