@@ -4,6 +4,7 @@ namespace TeduShop.Data.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using Model.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -16,31 +17,48 @@ namespace TeduShop.Data.Migrations
 
         protected override void Seed(TeduShop.Data.TeduShopDbContext context)
         {
+            CreateProductCategorySample(context);
             //  This method will be called after migrating to the latest version.
 
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
+            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
 
-            var user = new ApplicationUser()
+            //var user = new ApplicationUser()
+            //{
+            //    UserName = "tedu",
+            //    Email = "quochuy0880@gmail.com",
+            //    EmailConfirmed = true,
+            //    Birthday = DateTime.Now,
+            //    FullName = "Jason Ngo"
+            //};
+
+            //manager.Create(user, "123456$");
+
+            //if (!roleManager.Roles.Any())
+            //{
+            //    roleManager.Create(new IdentityRole { Name = "Admin" });
+            //    roleManager.Create(new IdentityRole { Name = "User" });
+            //}
+
+            //var adminUser = manager.FindByEmail("quochuy0880@gmail.com");
+
+            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+        }
+
+        private void CreateProductCategorySample(TeduShop.Data.TeduShopDbContext context)
+        {
+            if (context.ProductCategories.Count() == 0)
             {
-                UserName = "tedu",
-                Email = "quochuy0880@gmail.com",
-                EmailConfirmed = true,
-                Birthday = DateTime.Now,
-                FullName = "Jason Ngo"
+                List<ProductCategory> listProductCategory = new List<ProductCategory>()
+            {
+                new ProductCategory() {Name="Dien lanh",Alias= "Dien-lanh",Status=true },
+                new ProductCategory() {Name="Vien Thong",Alias= "vien-thong",Status=true },
+                new ProductCategory() {Name="Do gia dung",Alias= "Do-gia-dung",Status=true },
+                new ProductCategory() {Name="My pham",Alias= "my-pham",Status=true }
             };
-
-            manager.Create(user, "123456$");
-
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
+                context.ProductCategories.AddRange(listProductCategory);
+                context.SaveChanges();
             }
-
-            var adminUser = manager.FindByEmail("quochuy0880@gmail.com");
-
-            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
         }
     }
 }
