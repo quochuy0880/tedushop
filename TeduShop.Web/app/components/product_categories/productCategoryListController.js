@@ -1,8 +1,8 @@
 ﻿(function (app) {
     app.controller('productCategoryListController', productCategoryListController);
     
-    productCategoryListController.$inject = ['$scope','apiService','notificationService','$ngBootbox'];
-    function productCategoryListController($scope, apiService, notificationService, $ngBootbox) {
+    productCategoryListController.$inject = ['$scope','apiService','notificationService','$ngBootbox','$filter'];
+    function productCategoryListController($scope, apiService, notificationService, $ngBootbox, $filter) {
         $scope.productCategories = [];//khai bao mang rong
         $scope.page = 0;//goi phan trang
         $scope.pagesCount = 0;
@@ -13,6 +13,52 @@
         $scope.search = search;
 
         $scope.deleteProductCategory = deleteProductCategory;
+
+        $scope.selectAll = selectAll; //su kien cho selectAll
+        $scope.isAll = false;
+
+        $scope.deleteMultiple = deleteMultiple;//su kien cho Delete All
+
+        function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i,item) {
+                listId.push(item.ID);
+            });
+            var config = {
+                params: {
+                    checkProductCategories: JSON.stringify(listId)
+                }
+            }
+            apiService.del('api/productcategory/deletemulti', config, function (result) {
+                notificationService.displaySuccess('Deleted ' + result.data + ' item(s) successfully.');
+                search();
+            }, function (error) {
+                notificationService.displayError('Remove unsuccessfully.');
+            });
+        }
+
+        function selectAll() {
+            if ($scope.isAll === false) {
+                angular.forEach($scope.productCategories, function (item) {
+                    item.checked = true;
+                });
+                $scope.isAll = true;
+            } else {
+                angular.forEach($scope.productCategories, function (item) {
+                    item.checked = false;
+                });
+                $scope.isAll = false;
+            }
+        }
+        $scope.$watch("productCategories", function (n,o) {
+            var checked = $filter("filter")(n, { checked: true });
+            if (checked.length) {
+                $scope.selected = checked;
+                $('#btnDelete').removeAttr('disabled');
+            } else {
+                $('#btnDelete').attr('disabled','disabled');
+            }
+        },true);
 
         function deleteProductCategory(id) {
             $ngBootbox.confirm('Are you sure?').then(function () {
