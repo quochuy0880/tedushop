@@ -1,8 +1,8 @@
 ﻿(function (app) {
     app.controller('productCategoryListController', productCategoryListController);
     
-    productCategoryListController.$inject = ['$scope','apiService','notificationService'];
-    function productCategoryListController($scope, apiService, notificationService) {
+    productCategoryListController.$inject = ['$scope','apiService','notificationService','$ngBootbox'];
+    function productCategoryListController($scope, apiService, notificationService, $ngBootbox) {
         $scope.productCategories = [];//khai bao mang rong
         $scope.page = 0;//goi phan trang
         $scope.pagesCount = 0;
@@ -12,6 +12,24 @@
         //Binding cho su kien push len khi search
         $scope.search = search;
 
+        $scope.deleteProductCategory = deleteProductCategory;
+
+        function deleteProductCategory(id) {
+            $ngBootbox.confirm('Are you sure?').then(function () {
+                var config = {
+                    params: {
+                        id:id
+                    }
+                }
+                apiService.del('api/productcategory/delete', config, function () {
+                    notificationService.displaySuccess('Deleted successfully');
+                    search();
+                }, function () {
+                    notificationService.displayError('Remove items unsuccessfully.');
+                })
+            });
+        }
+            
         function search() {
             getProductCategories();
         }
@@ -39,5 +57,6 @@
         }
 
         $scope.getProductCategories();
+
     }
 })(angular.module('tedushop.product_categories'));
