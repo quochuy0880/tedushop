@@ -11,6 +11,7 @@
 
         //Binding cho su kien push len khi search
         $scope.search = search;
+
         function search() {
             getProductCategories();
         }
@@ -27,9 +28,6 @@
             apiService.get('/api/productcategory/getall', config, function (result) {
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Not found any record.');
-                }
-                else {
-                    notificationService.displaySuccess('Found '+result.data.TotalCount+' records in database.');
                 }
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
