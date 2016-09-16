@@ -9,9 +9,9 @@ namespace TeduShop.Web.Models
     public class ProductCategoryViewModel
     {
         public int ID { set; get; }
-        [Required]
+        [Required(ErrorMessage ="Please enter category name")]
         public string Name { set; get; }
-        [Required]
+        [Required(ErrorMessage = "Please enter SEO Title")]
         public string Alias { set; get; }
         public int? ParentID { set; get; }
         public int? DisplayOrder { set; get; }
@@ -27,7 +27,7 @@ namespace TeduShop.Web.Models
         public string UpdatedBy { set; get; }
         public string MetaKeyword { set; get; }
         public string MetaDescription { set; get; }
-        [Required]
+        [Required(ErrorMessage = "Please check status")]
         public bool Status { set; get; }
         public virtual IEnumerable<PostViewModel> Posts { set; get; }
     }
