@@ -6,3 +6,9 @@ B2: Sau khi thuc hien cac thao tac xong can cap nhat database theo dong lenh
 
 Note: neu chinh lai trong database nho
 - add-migration Changkey
+
+
+Khi thieu any field nao:
+B1: vao Model khai bao truoc
+B2: add-migration AddTagField
+B3: update-database

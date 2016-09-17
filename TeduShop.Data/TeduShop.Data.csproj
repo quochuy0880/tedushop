@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201609110932260_Changkey.Designer.cs">
       <DependentUpon>201609110932260_Changkey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609170121394_AddTagField.cs" />
+    <Compile Include="Migrations\201609170121394_AddTagField.Designer.cs">
+      <DependentUpon>201609170121394_AddTagField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609110932260_Changkey.resx">
       <DependentUpon>201609110932260_Changkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609170121394_AddTagField.resx">
+      <DependentUpon>201609170121394_AddTagField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -92,7 +92,7 @@ namespace TeduShop.Web.Api
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
-                    return response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 else
                 {
